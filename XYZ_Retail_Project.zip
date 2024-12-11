@@ -1,0 +1,940 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "decdbd62-e457-4f61-b20d-fe9f7451b37c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "XYZ Retail - Sales Analysis Report\n",
+      "-----------------------------------\n",
+      "Category A Sales: 150 units\n",
+      "Category B Sales: 100 units\n",
+      "Total Units Sold: 250 units\n",
+      "Difference (A - B): 50 units\n",
+      "Ratio (A : B): 1.50\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Initialize sales data for each category\n",
+    "category_a_sales = 150  # Units sold in Category A\n",
+    "category_b_sales = 100  # Units sold in Category B\n",
+    "\n",
+    "# Calculate the required metrics\n",
+    "total_units = category_a_sales + category_b_sales\n",
+    "sales_difference = category_a_sales - category_b_sales\n",
+    "sales_ratio = category_a_sales / category_b_sales\n",
+    "\n",
+    "# Print results in a clear format\n",
+    "print(\"XYZ Retail - Sales Analysis Report\")\n",
+    "print(\"-\" * 35)\n",
+    "print(f\"Category A Sales: {category_a_sales} units\")\n",
+    "print(f\"Category B Sales: {category_b_sales} units\")\n",
+    "print(f\"Total Units Sold: {total_units} units\")\n",
+    "print(f\"Difference (A - B): {sales_difference} units\")\n",
+    "print(f\"Ratio (A : B): {sales_ratio:.2f}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "1ad21276-1927-4b28-9432-df100eae3e80",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Dear John Doe, at 30, you're eligible for our premium loyalty program.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Store customer information\n",
+    "customer_name = \"John Doe\"\n",
+    "customer_age = 30\n",
+    "\n",
+    "# Convert age to string and create marketing message\n",
+    "age_as_string = str(customer_age)\n",
+    "marketing_message = f\"Dear {customer_name}, at {age_as_string}, you're eligible for our premium loyalty program.\"\n",
+    "\n",
+    "# Print the marketing message\n",
+    "print(marketing_message)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "5f1e3222-4a73-4066-96f2-2652bfb179bb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Product Price Analysis\n",
+      "-------------------------\n",
+      "Highest Price: $99.99\n",
+      "Lowest Price: $15.99\n",
+      "\n",
+      "Mid-range Products (25%-75% of price range):\n",
+      "$49.99\n",
+      "$75.50\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Initialize list of product prices\n",
+    "product_prices = [29.99, 49.99, 15.99, 99.99, 75.50, 35.00]\n",
+    "\n",
+    "# Find highest and lowest prices\n",
+    "highest_price = max(product_prices)\n",
+    "lowest_price = min(product_prices)\n",
+    "\n",
+    "# Calculate price range for mid-range products\n",
+    "price_threshold_low = lowest_price + (highest_price - lowest_price) * 0.25\n",
+    "price_threshold_high = lowest_price + (highest_price - lowest_price) * 0.75\n",
+    "\n",
+    "# Create list of mid-range products\n",
+    "mid_range_products = [price for price in product_prices \n",
+    "                     if price_threshold_low <= price <= price_threshold_high]\n",
+    "\n",
+    "# Add new premium product\n",
+    "new_premium_price = 149.99\n",
+    "product_prices.append(new_premium_price)\n",
+    "\n",
+    "# Print all results\n",
+    "print(\"Product Price Analysis\")\n",
+    "print(\"-\" * 25)\n",
+    "print(f\"Highest Price: ${highest_price:.2f}\")\n",
+    "print(f\"Lowest Price: ${lowest_price:.2f}\")\n",
+    "print(f\"\\nMid-range Products (25%-75% of price range):\")\n",
+    "for price in mid_range_products:\n",
+    "    print(f\"${price:.2f}\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "e73344ad-4ae6-46b6-94ea-4d3fad405c3e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Available SKUs: SKU123, SKU456, SKU789\n",
+      "\n",
+      "Product Information:\n",
+      "--------------------\n",
+      "Name: Premium Coffee Maker\n",
+      "SKU: SKU123\n",
+      "Price: $149.99\n",
+      "Category: Kitchen Appliances\n",
+      "Stock Level: 25 units\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Create a dictionary to store product information\n",
+    "inventory = {\n",
+    "    \"SKU123\": {\n",
+    "        \"product_name\": \"Premium Coffee Maker\",\n",
+    "        \"price\": 149.99,\n",
+    "        \"category\": \"Kitchen Appliances\",\n",
+    "        \"stock_level\": 25\n",
+    "    },\n",
+    "    \"SKU456\": {\n",
+    "        \"product_name\": \"Wireless Headphones\",\n",
+    "        \"price\": 89.99,\n",
+    "        \"category\": \"Electronics\",\n",
+    "        \"stock_level\": 15\n",
+    "    },\n",
+    "    \"SKU789\": {\n",
+    "        \"product_name\": \"Yoga Mat\",\n",
+    "        \"price\": 29.99,\n",
+    "        \"category\": \"Fitness\",\n",
+    "        \"stock_level\": 40\n",
+    "    }\n",
+    "}\n",
+    "\n",
+    "def lookup_product(sku):\n",
+    "    \"\"\"\n",
+    "    Look up product information by SKU.\n",
+    "    \n",
+    "    Args:\n",
+    "        sku (str): The SKU of the product to look up\n",
+    "    \n",
+    "    Returns:\n",
+    "        None: Prints product information or error message\n",
+    "    \"\"\"\n",
+    "    if sku in inventory:\n",
+    "        product = inventory[sku]\n",
+    "        print(\"\\nProduct Information:\")\n",
+    "        print(\"-\" * 20)\n",
+    "        print(f\"Name: {product['product_name']}\")\n",
+    "        print(f\"SKU: {sku}\")\n",
+    "        print(f\"Price: ${product['price']:.2f}\")\n",
+    "        print(f\"Category: {product['category']}\")\n",
+    "        print(f\"Stock Level: {product['stock_level']} units\")\n",
+    "    else:\n",
+    "        print(f\"\\nError: Product with SKU {sku} not found\")\n",
+    "\n",
+    "# Example usage\n",
+    "print(\"Available SKUs:\", \", \".join(inventory.keys()))\n",
+    "\n",
+    "# Demo lookups\n",
+    "test_skus = [\"SKU123\",]  # SKU999 doesn't exist\n",
+    "for sku in test_skus:\n",
+    "    lookup_product(sku)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "d07c80e1-0816-4a0a-885f-9ad6276f2be0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Stock Level Analysis for: Laptop\n",
+      "-----------------------------------\n",
+      "Current Stock: 5 units\n",
+      "Reorder Threshold: 10 units\n",
+      "Status: REORDER NOW\n",
+      "Action Required: Please reorder Laptop\n",
+      "\n",
+      "Stock Level Analysis for: Keyboard\n",
+      "-----------------------------------\n",
+      "Current Stock: 25 units\n",
+      "Reorder Threshold: 15 units\n",
+      "Status:  Stock is sufficient\n",
+      "Units until reorder needed: 10\n",
+      "\n",
+      "Stock Level Analysis for: Mouse\n",
+      "-----------------------------------\n",
+      "Current Stock: 8 units\n",
+      "Reorder Threshold: 12 units\n",
+      "Status: REORDER NOW\n",
+      "Action Required: Please reorder Mouse\n",
+      "\n",
+      "Stock Level Analysis for: Test Item\n",
+      "-----------------------------------\n",
+      "Current Stock: 3 units\n",
+      "Reorder Threshold: 5 units\n",
+      "Status: REORDER NOW\n",
+      "Action Required: Please reorder Test Item\n"
+     ]
+    }
+   ],
+   "source": [
+    "def check_stock_level(product_name, current_stock, reorder_threshold):\n",
+    "    \"\"\"\n",
+    "    Monitor stock levels and generate alerts based on threshold.\n",
+    "    \n",
+    "    Args:\n",
+    "        product_name (str): Name of the product\n",
+    "        current_stock (int): Current quantity in stock\n",
+    "        reorder_threshold (int): Minimum stock level before reorder\n",
+    "    \"\"\"\n",
+    "    print(f\"\\nStock Level Analysis for: {product_name}\")\n",
+    "    print(\"-\" * 35)\n",
+    "    print(f\"Current Stock: {current_stock} units\")\n",
+    "    print(f\"Reorder Threshold: {reorder_threshold} units\")\n",
+    "    \n",
+    "    if current_stock <= reorder_threshold:\n",
+    "        alert = \"REORDER NOW\"\n",
+    "        print(f\"Status: {alert}\")\n",
+    "        print(f\"Action Required: Please reorder {product_name}\")\n",
+    "    else:\n",
+    "        print(\"Status:  Stock is sufficient\")\n",
+    "        units_until_reorder = current_stock - reorder_threshold\n",
+    "        print(f\"Units until reorder needed: {units_until_reorder}\")\n",
+    "\n",
+    "# Example usage\n",
+    "products = [\n",
+    "    {\"name\": \"Laptop\", \"stock\": 5, \"threshold\": 10},\n",
+    "    {\"name\": \"Keyboard\", \"stock\": 25, \"threshold\": 15},\n",
+    "    {\"name\": \"Mouse\", \"stock\": 8, \"threshold\": 12}\n",
+    "]\n",
+    "\n",
+    "# Check stock levels for all products\n",
+    "for product in products:\n",
+    "    check_stock_level(\n",
+    "        product[\"name\"],\n",
+    "        product[\"stock\"],\n",
+    "        product[\"threshold\"]\n",
+    "    )\n",
+    "\n",
+    "# Test the function with a single product\n",
+    "test_product = \"Test Item\"\n",
+    "test_stock = 3\n",
+    "test_threshold = 5\n",
+    "check_stock_level(test_product, test_stock, test_threshold)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "e6b03084-5a91-48c0-b273-76f999b558dd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Products (using for loop):\n",
+      "LAPTOP\n",
+      "SMARTPHONE\n",
+      "TABLET\n",
+      "HEADPHONES\n",
+      "SMARTWATCH\n",
+      "\n",
+      "Products (using while loop):\n",
+      "LAPTOP\n",
+      "SMARTPHONE\n",
+      "TABLET\n",
+      "HEADPHONES\n",
+      "SMARTWATCH\n"
+     ]
+    }
+   ],
+   "source": [
+    "# List of products sold\n",
+    "products_sold = [\"laptop\", \"smartphone\", \"tablet\", \"headphones\", \"smartwatch\"]\n",
+    "\n",
+    "# Using a for loop to print each product name in uppercase\n",
+    "print(\"Products (using for loop):\")\n",
+    "for product in products_sold:\n",
+    "    print(product.upper())\n",
+    "\n",
+    "# Using a while loop to print each product name in uppercase\n",
+    "print(\"\\nProducts (using while loop):\")\n",
+    "i = 0\n",
+    "while i < len(products_sold):\n",
+    "    print(products_sold[i].upper())\n",
+    "    i += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "20f3d59f-6eba-4c0c-9c61-1d93243dd329",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Store Section Areas:\n",
+      "Electronics: 300 sq units\n",
+      "Clothing: 250 sq units\n",
+      "Groceries: 600 sq units\n",
+      "Furniture: 1000 sq units\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Function to calculate the area of a store section\n",
+    "def calculate_area(length, width):\n",
+    "    return length * width\n",
+    "\n",
+    "# Store sections and their dimensions\n",
+    "store_sections = {\n",
+    "    \"Electronics\": (20, 15),\n",
+    "    \"Clothing\": (25, 10),\n",
+    "    \"Groceries\": (30, 20),\n",
+    "    \"Furniture\": (40, 25)\n",
+    "}\n",
+    "\n",
+    "# Calculating and printing the area of each store section\n",
+    "print(\"\\nStore Section Areas:\")\n",
+    "for section, dimensions in store_sections.items():\n",
+    "    length, width = dimensions\n",
+    "    area = calculate_area(length, width)\n",
+    "    print(f\"{section}: {area} sq units\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "8a6f7d91-40df-49a1-85d8-d4452c2fff38",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Customer Feedback Analysis:\n",
+      "Original Feedback: The store layout is very customer-friendly and spacious.\n",
+      "Number of Vowels: 18\n",
+      "Reversed Feedback: .suoicaps dna yldneirf-remotsuc yrev si tuoyal erots ehT\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Function to count vowels in a feedback message\n",
+    "def count_vowels(feedback):\n",
+    "    vowels = \"aeiouAEIOU\"\n",
+    "    return sum(1 for char in feedback if char in vowels)\n",
+    "\n",
+    "# Function to reverse a feedback message\n",
+    "def reverse_feedback(feedback):\n",
+    "    return feedback[::-1]\n",
+    "\n",
+    "# Example feedback message\n",
+    "feedback_message = \"The store layout is very customer-friendly and spacious.\"\n",
+    "\n",
+    "# Analyzing feedback\n",
+    "vowel_count = count_vowels(feedback_message)\n",
+    "reversed_message = reverse_feedback(feedback_message)\n",
+    "\n",
+    "print(\"\\nCustomer Feedback Analysis:\")\n",
+    "print(f\"Original Feedback: {feedback_message}\")\n",
+    "print(f\"Number of Vowels: {vowel_count}\")\n",
+    "print(f\"Reversed Feedback: {reversed_message}\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "a931cc64-40b8-4dc0-9a69-8c279490d387",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Products (using for loop):\n",
+      "LAPTOP\n",
+      "SMARTPHONE\n",
+      "TABLET\n",
+      "HEADPHONES\n",
+      "SMARTWATCH\n",
+      "\n",
+      "Products (using while loop):\n",
+      "LAPTOP\n",
+      "SMARTPHONE\n",
+      "TABLET\n",
+      "HEADPHONES\n",
+      "SMARTWATCH\n",
+      "\n",
+      "Store Section Areas:\n",
+      "Electronics: 300 sq units\n",
+      "Clothing: 250 sq units\n",
+      "Groceries: 600 sq units\n",
+      "Furniture: 1000 sq units\n",
+      "\n",
+      "Customer Feedback Analysis:\n",
+      "Original Feedback: The store layout is very customer-friendly and spacious.\n",
+      "Number of Vowels: 18\n",
+      "Reversed Feedback: .suoicaps dna yldneirf-remotsuc yrev si tuoyal erots ehT\n",
+      "\n",
+      "Eligible Products for Discount Campaign:\n",
+      "['laptop', 'smartphone', 'tablet']\n",
+      "\n",
+      "Sales Log Content:\n",
+      "Daily Sales Summary:\n",
+      "- Total Revenue: $5000\n",
+      "- Total Units Sold: 250\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# List of products sold\n",
+    "products_sold = [\"laptop\", \"smartphone\", \"tablet\", \"headphones\", \"smartwatch\"]\n",
+    "\n",
+    "# Using a for loop to print each product name in uppercase\n",
+    "print(\"Products (using for loop):\")\n",
+    "for product in products_sold:\n",
+    "    print(product.upper())\n",
+    "\n",
+    "# Using a while loop to print each product name in uppercase\n",
+    "print(\"\\nProducts (using while loop):\")\n",
+    "i = 0\n",
+    "while i < len(products_sold):\n",
+    "    print(products_sold[i].upper())\n",
+    "    i += 1\n",
+    "\n",
+    "# Function to calculate the area of a store section\n",
+    "def calculate_area(length, width):\n",
+    "    return length * width\n",
+    "\n",
+    "# Store sections and their dimensions\n",
+    "store_sections = {\n",
+    "    \"Electronics\": (20, 15),\n",
+    "    \"Clothing\": (25, 10),\n",
+    "    \"Groceries\": (30, 20),\n",
+    "    \"Furniture\": (40, 25)\n",
+    "}\n",
+    "\n",
+    "# Calculating and printing the area of each store section\n",
+    "print(\"\\nStore Section Areas:\")\n",
+    "for section, dimensions in store_sections.items():\n",
+    "    length, width = dimensions\n",
+    "    area = calculate_area(length, width)\n",
+    "    print(f\"{section}: {area} sq units\")\n",
+    "\n",
+    "# Function to count vowels in a feedback message\n",
+    "def count_vowels(feedback):\n",
+    "    vowels = \"aeiouAEIOU\"\n",
+    "    return sum(1 for char in feedback if char in vowels)\n",
+    "\n",
+    "# Function to reverse a feedback message\n",
+    "def reverse_feedback(feedback):\n",
+    "    return feedback[::-1]\n",
+    "\n",
+    "# Example feedback message\n",
+    "feedback_message = \"The store layout is very customer-friendly and spacious.\"\n",
+    "\n",
+    "# Analyzing feedback\n",
+    "vowel_count = count_vowels(feedback_message)\n",
+    "reversed_message = reverse_feedback(feedback_message)\n",
+    "\n",
+    "print(\"\\nCustomer Feedback Analysis:\")\n",
+    "print(f\"Original Feedback: {feedback_message}\")\n",
+    "print(f\"Number of Vowels: {vowel_count}\")\n",
+    "print(f\"Reversed Feedback: {reversed_message}\")\n",
+    "\n",
+    "# Function to filter products based on price\n",
+    "def filter_products_by_price(products, threshold):\n",
+    "    return [product for product, price in products.items() if price >= threshold]\n",
+    "\n",
+    "# Products and their prices\n",
+    "product_prices = {\n",
+    "    \"laptop\": 1000,\n",
+    "    \"smartphone\": 800,\n",
+    "    \"tablet\": 400,\n",
+    "    \"headphones\": 150,\n",
+    "    \"smartwatch\": 200\n",
+    "}\n",
+    "\n",
+    "# Filtering products priced above a certain threshold\n",
+    "price_threshold = 300\n",
+    "eligible_products = filter_products_by_price(product_prices, price_threshold)\n",
+    "\n",
+    "print(\"\\nEligible Products for Discount Campaign:\")\n",
+    "print(eligible_products)\n",
+    "\n",
+    "# Managing sales log file\n",
+    "sales_log_file = \"sales_log.txt\"\n",
+    "\n",
+    "# Writing daily sales summary to the file\n",
+    "with open(sales_log_file, \"w\") as file:\n",
+    "    file.write(\"Daily Sales Summary:\\n\")\n",
+    "    file.write(\"- Total Revenue: $5000\\n\")\n",
+    "    file.write(\"- Total Units Sold: 250\\n\")\n",
+    "\n",
+    "# Reading and printing the content of the file\n",
+    "print(\"\\nSales Log Content:\")\n",
+    "with open(sales_log_file, \"r\") as file:\n",
+    "    print(file.read())\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "86f807f7-67cb-45b8-8781-b30841a98601",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Average Daily Sales for the Past Week:\n",
+      "607.14\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Task 11: Daily Sales Average\n",
+    "sales_last_week = [500, 600, 450, 700, 800, 550, 650]\n",
+    "\n",
+    "def calculate_average_sales(sales):\n",
+    "    return sum(sales) / len(sales)\n",
+    "\n",
+    "average_sales = calculate_average_sales(sales_last_week)\n",
+    "print(\"\\nAverage Daily Sales for the Past Week:\")\n",
+    "print(f\"{average_sales:.2f}\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "75626d78-8173-4481-b8f9-68ee717e81bf",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Customer Segmentation:\n",
+      "Customer 1: Low\n",
+      "Customer 2: Medium\n",
+      "Customer 3: High\n",
+      "Customer 4: Low\n",
+      "Customer 5: High\n",
+      "Customer 6: Medium\n",
+      "Customer 7: Low\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Task 12: Customer Segmentation\n",
+    "customer_spending = [50, 300, 700, 150, 1000, 400, 50]\n",
+    "\n",
+    "def categorize_customers(spending):\n",
+    "    categories = []\n",
+    "    for amount in spending:\n",
+    "        if amount < 200:\n",
+    "            categories.append(\"Low\")\n",
+    "        elif 200 <= amount < 700:\n",
+    "            categories.append(\"Medium\")\n",
+    "        else:\n",
+    "            categories.append(\"High\")\n",
+    "    return categories\n",
+    "\n",
+    "customer_categories = categorize_customers(customer_spending)\n",
+    "print(\"\\nCustomer Segmentation:\")\n",
+    "for i, category in enumerate(customer_categories):\n",
+    "    print(f\"Customer {i + 1}: {category}\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "299fa76a-a8dc-40de-8ea9-7cc7a17e0302",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Discounted Prices:\n",
+      "laptop: Original Price = $1000, Discount = 10%, Final Price = $900.00\n",
+      "smartphone: Original Price = $800, Discount = 15%, Final Price = $680.00\n",
+      "tablet: Original Price = $400, Discount = 20%, Final Price = $320.00\n",
+      "headphones: Original Price = $150, Discount = 5%, Final Price = $142.50\n",
+      "smartwatch: Original Price = $200, Discount = 25%, Final Price = $150.00\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Task 13: Discount Calculation\n",
+    "def calculate_discounted_price(original_price, discount_percentage):\n",
+    "    return original_price * (1 - discount_percentage / 100)\n",
+    "\n",
+    "# List of products with original prices and discount percentages\n",
+    "products_with_discounts = [\n",
+    "    (\"laptop\", 1000, 10),\n",
+    "    (\"smartphone\", 800, 15),\n",
+    "    (\"tablet\", 400, 20),\n",
+    "    (\"headphones\", 150, 5),\n",
+    "    (\"smartwatch\", 200, 25)\n",
+    "]\n",
+    "\n",
+    "print(\"\\nDiscounted Prices:\")\n",
+    "for product, original_price, discount_percentage in products_with_discounts:\n",
+    "    final_price = calculate_discounted_price(original_price, discount_percentage)\n",
+    "    print(f\"{product}: Original Price = ${original_price}, Discount = {discount_percentage}%, Final Price = ${final_price:.2f}\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "77877803-8d50-49b5-976f-e68abbad4c0e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sentiment: Neutral\n"
+     ]
+    }
+   ],
+   "source": [
+    "def analyze_feedback(feedback):\n",
+    "    # Define positive and negative words\n",
+    "    positive_words = [\"good\", \"happy\", \"excellent\", \"great\", \"fantastic\"]\n",
+    "    negative_words = [\"bad\", \"disappointed\", \"terrible\", \"awful\", \"poor\"]\n",
+    "\n",
+    "    # Convert feedback to lowercase for case-insensitive comparison\n",
+    "    feedback_lower = feedback.lower()\n",
+    "\n",
+    "    # Check for positive and negative words\n",
+    "    positive_found = any(word in feedback_lower for word in positive_words)\n",
+    "    negative_found = any(word in feedback_lower for word in negative_words)\n",
+    "\n",
+    "    # Determine sentiment\n",
+    "    if positive_found and not negative_found:\n",
+    "        return \"Positive\"\n",
+    "    elif negative_found and not positive_found:\n",
+    "        return \"Negative\"\n",
+    "    else:\n",
+    "        return \"Neutral\"\n",
+    "\n",
+    "# Example usage\n",
+    "customer_feedback = \"The service was good but the food was terrible.\"\n",
+    "sentiment = analyze_feedback(customer_feedback)\n",
+    "print(f\"Sentiment: {sentiment}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "e4d05f4c-8c9c-446b-a6e7-afcb204c3217",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Employee: Alice, Old Salary: $50000.00, Rating: excellent, New Salary: $60000.00\n",
+      "Employee: Bob, Old Salary: $45000.00, Rating: good, New Salary: $49500.00\n",
+      "Employee: Charlie, Old Salary: $40000.00, Rating: average, New Salary: $42000.00\n",
+      "Employee: David, Old Salary: $60000.00, Rating: poor, New Salary: $60000.00\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "def calculate_salary_increment(employees):\n",
+    "    # Define increment percentages based on performance ratings\n",
+    "    increment_percentages = {\n",
+    "        \"excellent\": 0.20,  # 20% increment\n",
+    "        \"good\": 0.10,       # 10% increment\n",
+    "        \"average\": 0.05,    # 5% increment\n",
+    "        \"poor\": 0.00        # No increment\n",
+    "    }\n",
+    "\n",
+    "    # Calculate and print updated salaries\n",
+    "    for name, (salary, rating) in employees.items():\n",
+    "        increment_percentage = increment_percentages.get(rating.lower(), 0.00)\n",
+    "        new_salary = salary * (1 + increment_percentage)\n",
+    "        print(f\"Employee: {name}, Old Salary: ${salary:.2f}, Rating: {rating}, New Salary: ${new_salary:.2f}\")\n",
+    "\n",
+    "# Example usage\n",
+    "employees = {\n",
+    "    \"Alice\": (50000, \"excellent\"),\n",
+    "    \"Bob\": (45000, \"good\"),\n",
+    "    \"Charlie\": (40000, \"average\"),\n",
+    "    \"David\": (60000, \"poor\")\n",
+    "}\n",
+    "\n",
+    "calculate_salary_increment(employees)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "id": "9cb613d4-77a6-4275-8bdf-f8319582a7a9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def generate_monthly_report(sales_figures):\n",
+    "    # Calculate total and average sales\n",
+    "    total_sales = sum(sales_figures)\n",
+    "    average_sales = total_sales / len(sales_figures)\n",
+    "\n",
+    "    # Write statistics to a text file\n",
+    "    with open(\"monthly_report.txt\", \"w\") as file:\n",
+    "        file.write(\"Monthly Sales Report\\n\")\n",
+    "        file.write(\"------------------------\\n\")\n",
+    "        file.write(f\"Total Sales: ${total_sales:.2f}\\n\")\n",
+    "        file.write(f\"Average Sales: ${average_sales:.2f}\\n\")\n",
+    "\n",
+    "# Example usage\n",
+    "daily_sales_figures = [1000, 1200, 1500, 1800, 2000, 2200, 2500, 2800, 3000, 3200, 3500, 3800, 4000, 4200, 4500, 4800, 5000, 5200, 5500, 5800, 6000, 6200, 6500, 6800, 7000, 7200, 7500, 7800, 8000, 8200, 8500]\n",
+    "generate_monthly_report(daily_sales_figures)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "id": "f093787d-b44b-4198-a320-3573714ed6ef",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Products to Reorder:\n",
+      "Product C: 20\n",
+      "Product E: 30\n"
+     ]
+    }
+   ],
+   "source": [
+    "def plan_stock_replenishment(products, threshold):\n",
+    "    # Identify products that need replenishment\n",
+    "    products_to_reorder = {name: quantity for name, quantity in products.items() if quantity < threshold}\n",
+    "\n",
+    "    # Print products that need to be reordered\n",
+    "    print(\"Products to Reorder:\")\n",
+    "    for name, quantity in products_to_reorder.items():\n",
+    "        print(f\"{name}: {quantity}\")\n",
+    "\n",
+    "# Example usage\n",
+    "products = {\n",
+    "    \"Product A\": 50,\n",
+    "    \"Product B\": 100,\n",
+    "    \"Product C\": 20,\n",
+    "    \"Product D\": 80,\n",
+    "    \"Product E\": 30\n",
+    "}\n",
+    "threshold = 50\n",
+    "plan_stock_replenishment(products, threshold)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "id": "32559e7a-dd2e-4259-ba21-33d42c1f909e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cleaned Customer Names:\n",
+      "John Doe\n",
+      "Jane Smith\n",
+      "Bob Johnson\n",
+      "Alice Brown\n"
+     ]
+    }
+   ],
+   "source": [
+    "def clean_customer_names(names):\n",
+    "    # Clean names by trimming spaces and standardizing capitalization\n",
+    "    cleaned_names = [name.strip().title() for name in names]\n",
+    "\n",
+    "    # Print cleaned names\n",
+    "    print(\"Cleaned Customer Names:\")\n",
+    "    for name in cleaned_names:\n",
+    "        print(name)\n",
+    "\n",
+    "# Example usage\n",
+    "customer_names = [\"  john doe  \", \"JANE SMITH\", \"  bob johnson  \", \"alice brown\"]\n",
+    "clean_customer_names(customer_names)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "6dfc0a73-079a-424f-a847-570442766fee",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Forecasted Sales for Next Month:\n",
+      "$3500.00\n"
+     ]
+    }
+   ],
+   "source": [
+    "def forecast_next_month_sales(sales_figures):\n",
+    "    # Calculate average sales of the last 3 months\n",
+    "    average_sales = sum(sales_figures[-3:]) / 3\n",
+    "\n",
+    "    # Print forecasted sales figures\n",
+    "    print(\"Forecasted Sales for Next Month:\")\n",
+    "    print(f\"${average_sales:.2f}\")\n",
+    "\n",
+    "# Example usage\n",
+    "monthly_sales_figures = [1000, 1200, 1500, 1800, 2000, 2200, 2500, 2800, 3000, 3200, 3500, 3800]\n",
+    "forecast_next_month_sales(monthly_sales_figures)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "id": "57b6f1b3-54e8-4967-a72a-18bdf0f97481",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "John Doe: 500 loyalty points (bronze tier)\n",
+      "Jane Smith: 4000 loyalty points (silver tier)\n",
+      "Bob Johnson: 24000 loyalty points (gold tier)\n",
+      "Alice Brown: 48000 loyalty points (platinum tier)\n"
+     ]
+    }
+   ],
+   "source": [
+    "def calculate_loyalty_points(customers):\n",
+    "    # Define tiered system for loyalty points\n",
+    "    tiered_system = {\n",
+    "        \"bronze\": (0, 1000, 1),\n",
+    "        \"silver\": (1001, 5000, 2),\n",
+    "        \"gold\": (5001, 10000, 3),\n",
+    "        \"platinum\": (10001, float(\"inf\"), 4)\n",
+    "    }\n",
+    "\n",
+    "    # Calculate loyalty points for each customer\n",
+    "    for name, purchase_amount in customers.items():\n",
+    "        for tier, (min_amount, max_amount, multiplier) in tiered_system.items():\n",
+    "            if min_amount <= purchase_amount <= max_amount:\n",
+    "                loyalty_points = purchase_amount * multiplier\n",
+    "                print(f\"{name}: {loyalty_points} loyalty points ({tier} tier)\")\n",
+    "\n",
+    "# Example usage\n",
+    "customers = {\n",
+    "    \"John Doe\": 500,\n",
+    "    \"Jane Smith\": 2000,\n",
+    "    \"Bob Johnson\": 8000,\n",
+    "    \"Alice Brown\": 12000\n",
+    "}\n",
+    "calculate_loyalty_points(customers)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "53135918-740e-42a8-9e1e-4a8c57818e75",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
